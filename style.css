@@ -1,0 +1,110 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+* {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+.wrapper {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  margin: 1rem auto;
+  border-radius: 1.5rem .2rem;
+  box-shadow: 3px 3px 4px #878892D1;
+  overflow: hidden;
+}
+.box {
+  min-width: 10%;
+  width: 20%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border: 1px solid #A9AAB3C7;
+  transition: .3s;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+}
+.box .layer {
+  width: 50px;
+  height: 50px;
+  border-radius: 25% 0 0;
+  position: absolute;
+  bottom: -35px;
+  right: -35px;
+  background-color: rgba(50, 50, 50, .3);
+  backdrop-filter: blur(6px);
+}
+.box span {
+  z-index: 2;
+  position: absolute;
+}
+.box span:first-child {
+  top: -30px;
+  font-weight: bold;
+  color: white;
+}
+.box span:nth-child(2) {
+  bottom: -60px;
+  font-weight: 500;
+  letter-spacing: .1rem;
+  color: #CACBD7;
+}
+.box:hover{
+  min-width: 60%;
+}
+.box:hover .layer {
+  animation: zoom-layer .3s forwards;
+}
+.box:hover span:first-child {
+  animation: main-title .3s forwards
+}
+.box:hover span:nth-child(2) {
+  animation: sub-title .3s forwards;
+}
+
+@keyframes main-title {
+  from {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(315px);
+    font-size: 1.1rem;
+  }
+  to {
+    transform: translateY(630px);
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes sub-title {
+  from {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-70px);
+    font-size: .35rem;
+  }
+  to {
+    transform: translateY(-140px);
+    font-size: .7rem;
+  }
+}
+
+@keyframes zoom-layer {
+  from {
+    width: 50px;
+    height: 50px;
+  }
+  to {
+    right: 0;
+    bottom: 0;
+    border-radius: 25% 0 0 0;
+    height: 30%;
+    width: 100%;
+  }
+}
